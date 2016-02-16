@@ -16,10 +16,17 @@ apply plugin: 'org.xtext.xtend'
 
 repositories.jcenter()
 
+sourceSets {
+    main.xtendOutputDir = 'src/main/xtend-gen'
+    test.xtendOutputDir = 'src/test/xtend-gen'
+}
+
 dependencies {
     compile 'org.eclipse.xtend:org.eclipse.xtend.lib:2.9.0'
     compile('org.springframework.boot:spring-boot-starter-web')
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    runtime('org.springframework.data:spring-data-rest-hal-browser')
     runtime("com.h2database:h2")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
