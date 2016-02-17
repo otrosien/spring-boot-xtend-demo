@@ -7,16 +7,16 @@ import javax.persistence.Id
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Entity
-@Accessors
 class Customer {
+    @Accessors
     var String firstName
+
+    @Accessors
     var String lastName
+
+    // No setter. JPA will inject the field directly
+    @Accessors(PUBLIC_GETTER)
     @Column(columnDefinition = "BINARY(16)")
     @Id UUID id = UUID::randomUUID
 
-    // no one should call this except maybe JPA.
-    @SuppressWarnings("unused")
-    private def setId(UUID id) {
-        this.id = id
-    }
 }
