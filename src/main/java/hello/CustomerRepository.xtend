@@ -1,10 +1,17 @@
 package hello
 
-import org.springframework.data.repository.CrudRepository
 import java.util.UUID
-import org.springframework.data.rest.core.annotation.RepositoryRestResource
+import java.util.stream.Stream
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.rest.core.annotation.RestResource
 
-@RepositoryRestResource
-interface CustomerRepository extends CrudRepository<Customer, UUID> {
-    def Iterable<Customer> findByLastName(String lastName)
+interface CustomerRepository extends JpaRepository<Customer, UUID> {
+
+    def Page<Customer> findPagedByLastName(String lastName, Pageable pageable)
+
+    @RestResource(exported=false)
+    def Stream<Customer> findStreamedByLastName(String lastName)
+
 }

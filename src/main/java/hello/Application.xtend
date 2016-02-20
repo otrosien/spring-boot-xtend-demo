@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
+import java.util.UUID
 
 @SpringBootApplication
 class Application {
@@ -29,21 +30,19 @@ class Application {
                     println('''«id»: «firstName» «lastName»''')
                 ]
 
-                repository.findAll().findFirst[true] => [
-                    repository.findOne(id) => [
-                        println('''
-                        
-                        Customer found with findOne('«id»'):
-                        -------------------------------- 
-                        «id»: «firstName» «lastName»''')
-                    ]
+                repository.findOne(UUID::fromString('f2fe9532-4021-418a-80e3-9bcc5229390a')) => [
+                    println('''
+                    
+                    Customer found with findOne('«id»'):
+                    -------------------------------- 
+                    «id»: «firstName» «lastName»''')
                 ]
 
                 println('''
                 
                 Customers found with findByLastName('Bauer'):
                 --------------------------------------------''')
-                repository.findByLastName('Bauer').forEach [
+                repository.findStreamedByLastName('Bauer').forEach [
                     println('''«id»: «firstName» «lastName»''')
                 ]
 }
@@ -61,7 +60,8 @@ class Application {
             repository.save(new Customer => [
                 firstName = 'David'; lastName = 'Palmer'
             ])
-            repository.save(new Customer => [
+            // create a customer with a fixed UUID:
+            repository.save(new Customer(UUID::fromString('f2fe9532-4021-418a-80e3-9bcc5229390a')) => [
                 firstName = 'Michelle'; lastName = 'Dessler'
             ])
     }
