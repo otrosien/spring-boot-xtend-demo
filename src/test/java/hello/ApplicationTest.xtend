@@ -33,6 +33,7 @@ class ApplicationTest {
 	}
 
 	@Test
+	@SuppressWarnings("unchecked")
 	def void testImportCustomer() {
 		mockMvc.perform(
 			put('/customers/169cffd1-cac5-4c1e-a98b-c7277c6c71bc') //

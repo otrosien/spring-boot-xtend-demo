@@ -36,6 +36,7 @@ dependencies {
 project.tasks.withType(JavaCompile) {
     options.fork = true
     options.compilerArgs << '-parameters'
+    options.compilerArgs << '-Xlint:unchecked'
 }
 
 task insertTestData << {

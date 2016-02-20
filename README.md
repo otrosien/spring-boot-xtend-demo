@@ -1,6 +1,8 @@
 # Spring Boot sample app, written in [Xtend](http://www.xtend-lang.org/).
 
-Using Spring-Data-REST and the HAL-Browser. Run the following commands to start:
+Using Spring-Data-REST and the HAL-Browser, inspired by https://github.com/sdeleuze/spring-boot-kotlin-demo
+
+Run the following commands to start:
 
 `./gradlew bootRepackage && build/libs/spring-boot-xtend-demo.jar`
 
