@@ -39,7 +39,7 @@ project.tasks.withType(JavaCompile) {
     options.compilerArgs << '-Xlint:unchecked'
 }
 
-task insertTestData << {
+task importTestData << {
     def client = new groovyx.net.http.RESTClient( 'http://localhost:8080' )
     ['John', 'Frank', 'Rango', 'Peter'].each { firstname ->
         ['Martin', 'Smith', 'Anderson', 'Johnson'].each { lastname ->
