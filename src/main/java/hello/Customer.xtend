@@ -8,19 +8,19 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 @Entity
 class Customer {
-    @Accessors
-    var String firstName
+	@Accessors
+	var String firstName
 
-    @Accessors
-    var String lastName
+	@Accessors
+	var String lastName
 
-    // No setter. JPA will inject the field directly
-    @Accessors(PUBLIC_GETTER)
-    @Column(columnDefinition = "BINARY(16)")
-    @Id UUID id
+	// No setter. JPA will inject the field directly
+	@Accessors(PUBLIC_GETTER)
+	@Column(columnDefinition="BINARY(16)")
+	@Id UUID id
 
 	// default constructor
-	new(){
+	new() {
 		this(UUID::randomUUID)
 	}
 

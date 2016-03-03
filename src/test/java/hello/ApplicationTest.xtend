@@ -35,14 +35,12 @@ class ApplicationTest {
 	@Test
 	@SuppressWarnings("unchecked")
 	def void testImportCustomer() {
-		perform(
-			put('/customers/169cffd1-cac5-4c1e-a98b-c7277c6c71bc') //
-			.content( //
-				writeValueAsString(#{
-					'firstName' -> 'John',
-					'lastName'  -> 'Tucker'
-				})
-			))
-			.andExpect(status.created)
+		perform(put('/customers/169cffd1-cac5-4c1e-a98b-c7277c6c71bc') //
+		.content( //
+			writeValueAsString(#{
+				'firstName' -> 'John',
+				'lastName' -> 'Tucker'
+			})
+		)).andExpect(status.created)
 	}
 }

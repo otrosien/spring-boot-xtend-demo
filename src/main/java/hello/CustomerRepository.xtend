@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository
 @Repository
 interface CustomerRepository extends JpaRepository<Customer, UUID> {
 
-    def Page<Customer> findPagedByLastName(String lastName, Pageable pageable)
+	def Page<Customer> findPagedByLastName(String lastName, Pageable pageable)
 
-    @RestResource(exported=false)
-    def Stream<Customer> findStreamedByLastName(String lastName)
+	@RestResource(exported=false)
+	def Stream<Customer> findStreamedByLastName(String lastName)
 
 }
