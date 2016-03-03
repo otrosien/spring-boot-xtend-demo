@@ -23,7 +23,7 @@ class ApplicationTest {
 	@Autowired
 	WebApplicationContext wac;
 
-	MockMvc mockMvc
+	extension MockMvc mockMvc
 
 	extension ObjectMapper jsonWriter = new ObjectMapper()
 
@@ -35,7 +35,7 @@ class ApplicationTest {
 	@Test
 	@SuppressWarnings("unchecked")
 	def void testImportCustomer() {
-		mockMvc.perform(
+		perform(
 			put('/customers/169cffd1-cac5-4c1e-a98b-c7277c6c71bc') //
 			.content( //
 				writeValueAsString(#{
