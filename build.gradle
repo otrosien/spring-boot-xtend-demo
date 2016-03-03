@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.3.2.RELEASE'
+        springBootVersion = '1.3.3.RELEASE'
     }
     repositories {
         jcenter()
@@ -37,21 +37,4 @@ project.tasks.withType(JavaCompile) {
     options.fork = true
     options.compilerArgs << '-parameters'
     options.compilerArgs << '-Xlint:unchecked'
-}
-
-task importTestData << {
-    def client = new groovyx.net.http.RESTClient( 'http://localhost:8080' )
-    ['John', 'Frank', 'Rango', 'Peter'].each { firstname ->
-        ['Martin', 'Smith', 'Anderson', 'Johnson'].each { lastname ->
-            def resp = client.post( path : '/customers',
-                body : [
-                    'firstName' : firstname,
-                    'lastName' : lastname,
-                     ],
-                requestContentType: 'application/json'
-                )
-            assert resp.status == 201
-            println resp.data.text
-        }
-    }
 }

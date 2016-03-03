@@ -6,10 +6,6 @@ Using Spring-Data-REST and the HAL-Browser, inspired by https://github.com/sdele
 
 Run the following commands to start:
 
-`./gradlew bootRepackage && build/libs/spring-boot-xtend-demo.jar`
+`./gradlew bootRun
 
-Import some more test data in a new console:
-
-`./gradlew importTestData`
-
-Open the browser at http://localhost:8080/
+Open the browser at (http://localhost:8080/)
