@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.0.M1'
+        springBootVersion = '1.4.0.M2'
     }
     repositories {
             jcenter()
@@ -8,7 +8,7 @@ buildscript {
             maven { url "https://repo.spring.io/milestone" }
     }
     dependencies {
-        classpath("org.xtext:xtext-gradle-plugin:1.0.3")
+        classpath("org.xtext:xtext-gradle-plugin:1.0.4")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
