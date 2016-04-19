@@ -6,6 +6,6 @@ Using Spring-Data-REST and the HAL-Browser, inspired by https://github.com/sdele
 
 Run the following commands to start:
 
-`./gradlew bootRun
+```./gradlew bootRun```
 
-Open the browser at (http://localhost:8080/)
+Open the browser at [http://localhost:8080/](http://localhost:8080/)
